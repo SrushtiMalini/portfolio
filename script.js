@@ -1,17 +1,13 @@
-// script.js
 document.addEventListener("DOMContentLoaded", function() {
-    const welcomeText = document.getElementById("welcome");
+    let welcomeText = document.querySelector(".welcome");
+    
+    // Show welcome text with animation
+    welcomeText.style.opacity = "1";
+    welcomeText.style.transform = "translateY(0)";
+    
+    // Hide it after 3 seconds
     setTimeout(() => {
+        welcomeText.style.opacity = "0";
         welcomeText.style.display = "none";
     }, 3000);
-
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            const section = document.querySelector(this.getAttribute("href"));
-            section.scrollIntoView({ behavior: "smooth" });
-        });
-    });
 });
-
-
